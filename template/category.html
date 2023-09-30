@@ -1,0 +1,45 @@
+{%extends 'base.html' %}
+
+{%block title%} Welcome to IBLOGS {%endblock%}
+
+{%block body%}
+
+<div class="container-custom">
+
+    <h3>{{cat.title}}</h3>
+    <div class="img-container">
+        <!-- <img src="/media/{{cat.image}}" class="responsive-img" style="max-height:450px;width:50%;object-fit:cover;" -->
+             <!-- alt=""> -->
+    </div>
+
+    <div class="collection">
+
+        {%for p in blogs %}
+        <!-- <a href="/blog/{{p.url}}" class="collection-item">{{p.title}}</a> -->
+        <li class="cards_item">
+          <div class="card" style="display: flex; padding:  25px;">
+            <div class="card_imag">{{ p.image_tag }} </div>
+            <div class="card_content" style="padding: 25px;">
+              <h2 class="card_title">{{ p.title }} &#x2022; ${{ obj.date_posted }}</h2>
+              <div class="card_text">
+                <p><span class="note">Seasonal.</span></p>
+                <p>{{ p.content }}A succulent sextet of fresh figs join with a selection of bodacious seasonal berries in this refreshing, shareable dessert.</p>
+                <p>Choose your drizzle: cherry-balsamic vinegar, local honey, or housemade chocolate sauce. </p>
+              </div>
+              <p>{{ p.author }}</p>
+            </div>
+          </div>
+        </li>
+        <hr>
+        {% empty %}
+
+        <h3>No posts in this category</h3>
+
+        {%endfor%}
+
+    </div>
+
+
+</div>
+
+{%endblock%}

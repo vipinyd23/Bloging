@@ -1,0 +1,43 @@
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+
+
+  {% for cat in cats %}
+
+  <li><a href="/category/{{cat.url}}">{{cat.title}}</a></li>
+
+  {% endfor %}
+
+</ul>
+<nav class="bg-primary">
+  <div class="container">
+      <div class="nav-wrapper" >
+          <a href="/home" class="brand-logo">IBLOGS</a>
+          <ul class="right hide-on-med-and-down">
+              <li><a href="/">HOME</a></li>
+              <li><a href="/admin">ADMIN</a></li>
+              <!-- <li><a href="/post">POST</a></li> -->
+              
+              <!-- Dropdown Trigger -->
+              <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">CATEGORY<i
+                    class="material-icons right">arrow_drop_down</i></a>
+              </li>
+            <div style="display: flex; justify-content: space-between;">
+              {% if user.is_authenticated %}
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <a class="btn btn-outline-primary btn-lg" role="button" aria-disabled="true" href="/logout">Logout {{ user.username }}</a>
+      </div>
+      
+
+      {% else %}
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a class="btn btn-outline-primary btn-lg" role="button" aria-disabled="true" href="/login">Login</a>
+            <a class="btn btn-outline-primary btn-lg" role="button" aria-disabled="true" href="/signup">Sign Up</a>
+        </div>
+      {% endif %}
+       </div>
+    </div>
+    </ul>
+    </div>
+  </div>
+</nav>
